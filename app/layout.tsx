@@ -20,9 +20,16 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const { userId } = auth();
 
   if (userId) {
-    const res = await getProfileByUserIdAction(userId);
-    if (!res.data) {
-      await createProfile({ userId });
+    try {
+      const res = await getProfileByUserIdAction(userId);
+      if (!res.data) {
+        console.log(`No profile found for user ${userId}, creating new profile...`);
+        await createProfile({ userId });
+      }
+    } catch (error) {
+      // Log the error but don't fail the rendering
+      console.error("Error handling user profile:", error);
+      // We'll continue rendering the app even if profile creation fails
     }
   }
 

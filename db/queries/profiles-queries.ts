@@ -6,10 +6,25 @@ import { InsertProfile, profilesTable, SelectProfile } from "../schema/profiles-
 
 export const createProfile = async (data: InsertProfile) => {
   try {
+    // Validate that required fields are present
+    if (!data.userId) {
+      throw new Error("User ID is required for profile creation");
+    }
+
+    // Log the data being inserted for debugging
+    console.log("Attempting to create profile with data:", JSON.stringify(data, null, 2));
+    
     const [newProfile] = await db.insert(profilesTable).values(data).returning();
     return newProfile;
   } catch (error) {
     console.error("Error creating profile:", error);
+    console.error("Error details:", JSON.stringify(error, null, 2));
+    
+    // More specific error message based on the error type
+    if (error instanceof Error) {
+      throw new Error(`Failed to create profile: ${error.message}`);
+    }
+    
     throw new Error("Failed to create profile");
   }
 };
