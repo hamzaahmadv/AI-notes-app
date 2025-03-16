@@ -1,7 +1,7 @@
 import { config } from "dotenv";
 import { drizzle } from "drizzle-orm/postgres-js";
 import postgres from "postgres";
-import { profilesTable } from "./schema";
+import { notesTable, profilesTable } from "./schema";
 
 // Load environment variables
 config({ path: ".env.local" });
@@ -13,7 +13,8 @@ if (!process.env.DATABASE_URL) {
 }
 
 const schema = {
-  profiles: profilesTable
+  profiles: profilesTable,
+  notes: notesTable
 };
 
 let client;
