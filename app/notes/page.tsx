@@ -1,6 +1,7 @@
 import { getProfileByUserId } from "@/db/queries/profiles-queries";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import Notes from "@/components/notes/notes";
 
 export default async function NotesPage() {
   const { userId } = auth();
@@ -19,5 +20,5 @@ export default async function NotesPage() {
     return redirect("/pricing");
   }
 
-  return <div>Notes</div>;
+  return <Notes />;
 }
