@@ -1,7 +1,15 @@
+import { AuroraBackground } from "@/components/ui/aurora-background";
+import AnimatedContent from "@/components/animated-content";
+
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div>Home Page</div>
-    </main>
+    <AuroraBackground>
+      <AnimatedContent 
+        heading="Welcome to Notes App"
+        subheading="Organize your thoughts beautifully"
+        buttonText="Start Writing"
+        buttonHref="/notes"
+      />
+    </AuroraBackground>
   );
 }
