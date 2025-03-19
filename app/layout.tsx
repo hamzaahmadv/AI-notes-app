@@ -43,7 +43,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             disableTransitionOnChange
           >
             <Header />
-            {children}
+            <main className="pt-16">
+              {children}
+            </main>
             <Toaster />
           </Providers>
         </body>
