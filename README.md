@@ -1,13 +1,3 @@
-# Notes App Starter
-
-This is a full-stack app template for courses on [Takeoff](https://JoinTakeoff.com/).
-
-## Sponsors
-
-If you are interested in sponsoring my repos, please contact me at [ads@takeoffai.org](mailto:ads@takeoffai.org).
-
-Or sponsor me directly on [GitHub Sponsors](https://github.com/sponsors/mckaywrigley).
-
 ## Tech Stack
 
 - IDE: [Cursor](https://www.cursor.com/)
